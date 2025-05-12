@@ -1,5 +1,5 @@
 # views/landing_page.py
-from PyQt5.QtWidgets import QWidget, QLabel, QLabel, QGraphicsOpacityEffect
+from PyQt5.QtWidgets import QWidget, QLabel, QLabel, QGraphicsOpacityEffect, QVBoxLayout
 from PyQt5.QtGui import QPixmap, QColor
 from PyQt5.QtCore import Qt, QPropertyAnimation, QRect, QEasingCurve
 import time
@@ -13,7 +13,14 @@ class LandingPage(QWidget):
         super().__init__()
         self.controller = controller
 
-        self.setStyleSheet("background-color: #121212;") 
+        # making sure the background is rendered correctly for animations
+        self.setAutoFillBackground(True)
+        self.setAttribute(Qt.WA_StyledBackground, True)
+
+
+        # Set the background color of the landing page to grey
+        # This is a placeholder; the actual background will be set with an image.
+        self.setStyleSheet("background-color: #141414;") 
 
         # Create background image as QLabel
         self.bg_label = QLabel(self)

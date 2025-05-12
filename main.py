@@ -31,7 +31,7 @@ class AppController(QMainWindow):
         self.stack.addWidget(self.mapping_page)
 
         # Show landing page initially
-        self.stack.setCurrentWidget(self.selection_page)
+        self.stack.setCurrentWidget(self.landing_page)
 
     def switch_to_selection(self):
         self.stack.setCurrentWidget(self.selection_page)
