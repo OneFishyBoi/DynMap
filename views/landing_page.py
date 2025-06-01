@@ -17,7 +17,6 @@ class LandingPage(QWidget):
         self.setAutoFillBackground(True)
         self.setAttribute(Qt.WA_StyledBackground, True)
 
-
         # Set the background color of the landing page to grey
         # This is a placeholder; the actual background will be set with an image.
         self.setStyleSheet("background-color: #141414;") 
@@ -46,16 +45,16 @@ class LandingPage(QWidget):
         # Get current geometry of the label
         current_rect = self.bg_label.geometry()
         
-        # Define target geometry (e.g., 20% larger and centered)
+        # Define target geometry for zoom effect
         scale_factor = 10
         new_width = int(current_rect.width() * scale_factor)
         new_height = int(current_rect.height() * scale_factor)
         new_x = int(current_rect.x() - (new_width - current_rect.width()) / 2)
         new_y = int(current_rect.y() - (new_height - current_rect.height()) / 2)
 
-        # Animate geometry change
+        # Animate the zoom effect
         self.anim = QPropertyAnimation(self.bg_label, b"geometry")
-        self.anim.setDuration(5000)  # in ms
+        self.anim.setDuration(5000)
         self.anim.setStartValue(current_rect)
         self.anim.setEndValue(QRect(new_x, new_y, new_width, new_height))
         self.anim.setEasingCurve(QEasingCurve.InOutQuad)
