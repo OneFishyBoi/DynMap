@@ -1,8 +1,10 @@
 # main.py
 from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QDesktopWidget
+from PyQt5.QtGui import QIcon
 from views.landing_page import LandingPage
 from views.selection_page import SelectionPage
 from views.mapping_page import MappingPage
+import os
 
 class AppController(QMainWindow):
     # initialising the app controller
@@ -10,6 +12,10 @@ class AppController(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("DynMap")
+
+        # setting the icon for the application window
+        icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "resources", "icon.png")
+        self.setWindowIcon(QIcon(icon_path))
 
         # a custom pyqt5 stack of pages that allows for fast swapping between different pages
         # without having to create new instances of the pages each time
@@ -39,7 +45,7 @@ class AppController(QMainWindow):
     def switch_to_landing(self):
         self.stack.setCurrentWidget(self.landing_page)
 
-    def swith_to_mapping(self):
+    def switch_to_mapping(self):
         self.stack.setCurrentWidget(self.mapping_page)
 
 

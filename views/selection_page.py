@@ -56,6 +56,7 @@ class SelectionPage(QWidget):
         # adding delete button and open button
         bin_button = QPushButton("BIN")
         open_button = QPushButton("OPEN")
+        open_button.clicked.connect(lambda: self.controller.switch_to_mapping())
         bin_button.clicked.connect(self.remove_selected_map)
 
         # styling both buttons
@@ -149,7 +150,7 @@ class SelectionPage(QWidget):
         # adding logic for selecting the map
         new_map.clicked.connect(lambda checked, btn=new_map: self.select_map_button(btn))
         new_map.clearFocus()
-        
+
         # Increment the map count
         self.map_count += 1
 
